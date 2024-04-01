@@ -1,0 +1,27 @@
+name: CodeStyleCheck
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  checkstyle_project:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Code check
+        uses: actions/checkout@v2
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Install StyleCop Analyzers
+        run: |
+          cd C:\Users\Jallios\Desktop\zxc\api\api
+          dotnet add package StyleCop.Analyzers --version 1.1.118
+      - name: Build project with StyleCop
+        run: dotnet build C:\Users\Jallios\Desktop\zxc\api\api.csproj /p:StyleCopEnabled=true /p:StyleCopTreatErrorsAsWarnings=true
