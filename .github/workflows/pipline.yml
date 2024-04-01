@@ -24,4 +24,4 @@ jobs:
           cd api
           dotnet add package StyleCop.Analyzers --version 1.1.118
       - name: Build project with StyleCop
-        run: dotnet build api.csproj /p:StyleCopEnabled=true /p:StyleCopTreatErrorsAsWarnings=true
+        run: dotnet build api/api.csproj /p:StyleCopEnabled=true /p:StyleCopTreatErrorsAsWarnings=true
